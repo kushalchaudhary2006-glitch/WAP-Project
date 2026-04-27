@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpendWise — Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="22" rx="6" fill="#2563eb"/>
+        <path d="M11 5v1.5M11 15.5V17M7.5 11H6M16 11h-1.5M9 9l-1-1M14 14l-1-1M13 9l1-1M8 14l1-1" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="11" cy="11" r="2.5" stroke="white" stroke-width="1.6"/>
+      </svg>
+      SpendWise
+    </div>
+    <div class="nav-balance">
+      <span class="nav-label">Net Balance</span>
+      <span class="nav-amount" id="navBalance">₹0</span>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="cards">
+      <div class="card card-income">
+        <div class="card-icon">↑</div>
+        <div>
+          <p class="card-label">Total Income</p>
+          <p class="card-value" id="totalIncome">₹0</p>
+        </div>
+      </div>
+      <div class="card card-expense">
+        <div class="card-icon">↓</div>
+        <div>
+          <p class="card-label">Total Expense</p>
+          <p class="card-value" id="totalExpense">₹0</p>
+        </div>
+      </div>
+      <div class="card card-balance">
+        <div class="card-icon">⚖</div>
+        <div>
+          <p class="card-label">Balance</p>
+          <p class="card-value" id="totalBalance">₹0</p>
+        </div>
+      </div>
+    </section>
+
+
+
+</body>
+</html>

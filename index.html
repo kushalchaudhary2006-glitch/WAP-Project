@@ -1,26 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SpendWise — Expense Tracker</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
-
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="22" height="22" rx="6" fill="#2563eb"/>
-        <path d="M11 5v1.5M11 15.5V17M7.5 11H6M16 11h-1.5M9 9l-1-1M14 14l-1-1M13 9l1-1M8 14l1-1" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="11" cy="11" r="2.5" stroke="white" stroke-width="1.6"/>
-      </svg>
       SpendWise
     </div>
+
     <div class="nav-balance">
       <span class="nav-label">Net Balance</span>
       <span class="nav-amount" id="navBalance">₹0</span>
@@ -29,6 +33,7 @@
 
   <main class="container">
 
+    <!-- CARDS -->
     <section class="cards">
       <div class="card card-income">
         <div class="card-icon">↑</div>
@@ -37,6 +42,7 @@
           <p class="card-value" id="totalIncome">₹0</p>
         </div>
       </div>
+
       <div class="card card-expense">
         <div class="card-icon">↓</div>
         <div>
@@ -44,6 +50,7 @@
           <p class="card-value" id="totalExpense">₹0</p>
         </div>
       </div>
+
       <div class="card card-balance">
         <div class="card-icon">⚖</div>
         <div>
@@ -53,7 +60,95 @@
       </div>
     </section>
 
+    <!-- ADD TRANSACTION -->
+    <section class="form-section">
+      <h2 id="formTitle">Add Transaction</h2>
 
+      <form id="txnForm">
+        <input type="hidden" id="editId">
+
+        <input type="text" id="txnTitle" placeholder="Enter title" required>
+
+        <input type="number" id="txnAmount" placeholder="Enter amount" required>
+
+        <select id="txnType">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <select id="txnCategory">
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Health">Health</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Salary">Salary</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <input type="date" id="txnDate">
+
+        <button type="submit" id="submitBtn">Add Transaction</button>
+        <button type="button" id="cancelEdit" style="display:none;">Cancel</button>
+      </form>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="filters">
+      <input type="text" id="searchInput" placeholder="Search transactions...">
+
+      <select id="filterType">
+        <option value="all">All Types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+      <select id="filterCategory">
+        <option value="all">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Health">Health</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Salary">Salary</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input type="date" id="filterDate">
+
+      <button onclick="resetFilters()">Reset</button>
+    </section>
+
+    <!-- TRANSACTION LIST -->
+    <section>
+      <h2>Transactions</h2>
+      <div id="txnList"></div>
+    </section>
+
+    <!-- CURRENCY CONVERTER -->
+    <section class="converter">
+      <h2>Currency Converter</h2>
+
+      <input type="number" id="convertAmount" placeholder="Enter INR amount">
+
+      <select id="convertTo">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="AED">AED</option>
+      </select>
+
+      <button id="convertBtn" onclick="convertCurrency()">Convert</button>
+
+      <div id="convertResult" class="convert-result"></div>
+    </section>
+
+  </main>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
 
 </body>
 </html>
+```
